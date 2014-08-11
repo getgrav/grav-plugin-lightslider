@@ -1,0 +1,39 @@
+<script src="{{ base_url_relative }}/user/plugins/lightslider/js/jquery.lightSlider.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#lightSlider").lightSlider({
+        minSlide:1,
+        maxSlide:1,
+        mode: '{{ page.header.lightslider.mode|default('slide') }}',
+        pager: {{ page.header.lightslider.pager|default('true') }},
+        controls: {{ page.header.lightslider.controls|default('true') }},
+        keyPress: {{ page.header.lightslider.keyPress|default('true') }},
+        pause: {{ page.header.lightslider.pause|default('2000') }},
+        speed: {{ page.header.lightslider.speed|default('1000') }},
+    });
+  });
+</script>
+
+<div id="lightSlider-wrapper">
+    <ul id="lightSlider" style="
+        {% if page.header.lightslider.height %}height: {{ page.header.lightslider.height }};{% endif %}
+    ">
+      {% for panel in page.content|split('<hr />') %}
+      {% set panel_image = page.media['image-'~loop.index~'.jpg'].brightness(-100) %}
+      <li>
+        <div class="panel-bg" style="
+            {% if panel_image %}background-image: url({{ panel_image.url }});{% endif %}
+            {% if page.header.lightslider.min_height %}min-height: {{ page.header.lightslider.min_height }};{% endif %}
+            {% if page.header.lightslider.height %}height: {{ page.header.lightslider.height }};{% endif %}
+            ">
+            <div class="panel-padding">
+            {{ panel }}
+            </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+</div>
+
+
+

@@ -1,0 +1,9 @@
+#lightSlider, #lightSlider li { box-sizing: content-box;}
+#lightSlider { padding-left: 0; list-style: none; overflow: hidden;}
+#lightSlider li { width: 100%; display: block; float: left; color: #eee;}
+#lightSlider .panel-bg {background-size: cover; background-position: center;}
+#lightSlider .panel-padding {padding: 50px 80px}
+#lightSlider h1, #lightSlider h2, #lightSlider h3, #lightSlider h4 { color: #fff;}
+.csSlideOuter .csPager.cSpg > li a { height: 12px !important; width: 12px !important; border-radius: 100% !important;}
+
+
