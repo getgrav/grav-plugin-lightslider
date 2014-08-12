@@ -1,0 +1,15 @@
+{
+   "project":"grav-plugin-lightslider",
+   "platforms":{
+      "grav":{
+         "nodes":{
+            "plugin":[
+               {
+                  "source":"/",
+                  "destination":"/user/plugins/lightslider"
+               }
+            ]
+         }
+      }
+   }
+}
