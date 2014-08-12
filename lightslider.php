@@ -58,7 +58,7 @@ class LightsliderPlugin extends Plugin
     /**
      * Set needed variables to display cart.
      */
-    public function onAfterSiteTwigVars()
+    public function onAfterTwigSiteVars()
     {
         if (!$this->active) {
             return;
