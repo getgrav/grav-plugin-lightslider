@@ -65,9 +65,10 @@ class LightsliderPlugin extends Plugin
         }
 
         if ($this->config->get('plugins.lightslider.built_in_css')) {
-            $twig = Registry::get('Twig');
-            $twig->twig_vars['stylesheets'][] = 'user/plugins/lightslider/css/lightslider-core.css';
-            $twig->twig_vars['stylesheets'][] = 'user/plugins/lightslider/css/lightslider-custom.css';
+            Registry::get('Assets')
+                ->add('@plugin/lightslider/css:lightslider-core.css')
+                ->add('@plugin/lightslider/css:lightslider-custom.css')
+                ->add('@plugin/lightslider/js:jquery.lightSlider.min.js');
         }
     }
 }
