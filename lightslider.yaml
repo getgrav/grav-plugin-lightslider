@@ -1,5 +1,2 @@
-name: LightSlider
-description: A slider based on LightSlider - http://sachinchoolur.github.io/lightslider/
-
 enabled: true
 built_in_css: true

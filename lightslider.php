@@ -2,24 +2,20 @@
 namespace Grav\Plugin;
 
 use \Grav\Common\Plugin;
-use \Grav\Common\Registry;
 use \Grav\Common\Grav;
 use \Grav\Common\Page\Page;
-use \Grav\Common\Page\Pages;
 
 class LightsliderPlugin extends Plugin
 {
-
-    protected $active = false;
-
-     /**
-     * Activate snipcart plugin
-     *
-     * Also disables debugger.
+    /**
+     * @return array
      */
-    public function onAfterInitPlugins()
-    {
-        $this->active = true;
+    public static function getSubscribedEvents() {
+        return [
+            'onAfterGetPage' => ['onAfterGetPage', 0],
+            'onAfterTwigTemplatesPaths' => ['onAfterTwigTemplatesPaths', 0],
+            'onAfterTwigSiteVars' => ['onAfterTwigSiteVars', 0]
+        ];
     }
 
     /**
@@ -27,14 +23,10 @@ class LightsliderPlugin extends Plugin
      */
     public function onAfterGetPage()
     {
-        if (!$this->active) {
-            return;
-        }
-
         $defaults = (array) $this->config->get('plugins.lightslider');
 
         /** @var Page $page */
-        $page = Registry::get('Grav')->page;
+        $page = $this->grav['page'];
         if (isset($page->header()->lightslider)) {
             $page->header()->lightslider = array_merge($defaults, $page->header()->lightslider);
         } else {
@@ -48,11 +40,7 @@ class LightsliderPlugin extends Plugin
      */
     public function onAfterTwigTemplatesPaths()
     {
-        if (!$this->active) {
-            return;
-        }
-
-        Registry::get('Twig')->twig_paths[] = __DIR__ . '/templates';
+        $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
     }
 
     /**
@@ -60,12 +48,8 @@ class LightsliderPlugin extends Plugin
      */
     public function onAfterTwigSiteVars()
     {
-        if (!$this->active) {
-            return;
-        }
-
         if ($this->config->get('plugins.lightslider.built_in_css')) {
-            Registry::get('Assets')
+            $this->grav['assets']
                 ->add('@plugin/lightslider/css:lightslider-core.css')
                 ->add('@plugin/lightslider/css:lightslider-custom.css')
                 ->add('@plugin/lightslider/js:jquery.lightSlider.min.js');
