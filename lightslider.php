@@ -12,16 +12,16 @@ class LightsliderPlugin extends Plugin
      */
     public static function getSubscribedEvents() {
         return [
-            'onAfterGetPage' => ['onAfterGetPage', 0],
-            'onAfterTwigTemplatesPaths' => ['onAfterTwigTemplatesPaths', 0],
-            'onAfterTwigSiteVars' => ['onAfterTwigSiteVars', 0]
+            'onPageInitialized' => ['onPageInitialized', 0],
+            'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
+            'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
         ];
     }
 
     /**
      * Initialize configuration
      */
-    public function onAfterGetPage()
+    public function onPageInitialized()
     {
         $defaults = (array) $this->config->get('plugins.lightslider');
 
@@ -38,7 +38,7 @@ class LightsliderPlugin extends Plugin
     /**
      * Add current directory to twig lookup paths.
      */
-    public function onAfterTwigTemplatesPaths()
+    public function onTwigTemplatePaths()
     {
         $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
     }
@@ -46,7 +46,7 @@ class LightsliderPlugin extends Plugin
     /**
      * Set needed variables to display cart.
      */
-    public function onAfterTwigSiteVars()
+    public function onTwigSiteVariables()
     {
         if ($this->config->get('plugins.lightslider.built_in_css')) {
             $this->grav['assets']
