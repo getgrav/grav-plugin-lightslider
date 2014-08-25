@@ -2,39 +2,31 @@
 namespace Grav\Plugin;
 
 use \Grav\Common\Plugin;
-use \Grav\Common\Registry;
 use \Grav\Common\Grav;
 use \Grav\Common\Page\Page;
-use \Grav\Common\Page\Pages;
 
 class LightsliderPlugin extends Plugin
 {
-
-    protected $active = false;
-
-     /**
-     * Activate snipcart plugin
-     *
-     * Also disables debugger.
+    /**
+     * @return array
      */
-    public function onAfterInitPlugins()
-    {
-        $this->active = true;
+    public static function getSubscribedEvents() {
+        return [
+            'onPageInitialized' => ['onPageInitialized', 0],
+            'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
+            'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
+        ];
     }
 
     /**
      * Initialize configuration
      */
-    public function onAfterGetPage()
+    public function onPageInitialized()
     {
-        if (!$this->active) {
-            return;
-        }
-
         $defaults = (array) $this->config->get('plugins.lightslider');
 
         /** @var Page $page */
-        $page = Registry::get('Grav')->page;
+        $page = $this->grav['page'];
         if (isset($page->header()->lightslider)) {
             $page->header()->lightslider = array_merge($defaults, $page->header()->lightslider);
         } else {
@@ -46,28 +38,21 @@ class LightsliderPlugin extends Plugin
     /**
      * Add current directory to twig lookup paths.
      */
-    public function onAfterTwigTemplatesPaths()
+    public function onTwigTemplatePaths()
     {
-        if (!$this->active) {
-            return;
-        }
-
-        Registry::get('Twig')->twig_paths[] = __DIR__ . '/templates';
+        $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
     }
 
     /**
      * Set needed variables to display cart.
      */
-    public function onAfterTwigSiteVars()
+    public function onTwigSiteVariables()
     {
-        if (!$this->active) {
-            return;
-        }
-
         if ($this->config->get('plugins.lightslider.built_in_css')) {
-            $twig = Registry::get('Twig');
-            $twig->twig_vars['stylesheets'][] = 'user/plugins/lightslider/css/lightslider-core.css';
-            $twig->twig_vars['stylesheets'][] = 'user/plugins/lightslider/css/lightslider-custom.css';
+            $this->grav['assets']
+                ->add('plugin://lightslider/css/lightslider-core.css')
+                ->add('plugin://lightslider/css/lightslider-custom.css')
+                ->add('plugin://lightslider/js/jquery.lightSlider.min.js');
         }
     }
 }

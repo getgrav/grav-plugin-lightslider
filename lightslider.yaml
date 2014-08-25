@@ -1,5 +1,10 @@
-name: LightSlider
-description: A slider based on LightSlider - http://sachinchoolur.github.io/lightslider/
-
 enabled: true
 built_in_css: true
+#min_height: 290px;
+# height: 280px;
+mode: slide
+pager: true
+controls: true
+keyPress: true
+pause: 2000
+speed: 1000
