@@ -30,12 +30,14 @@ visible: false
 lightslider:
     #min_height: 290px;
     height: 280px;
-    mode: slide
-    pager: true
-    controls: true
-    keyPress: true
+    mode: 'slide'
+    pager: 'true'
+    controls: 'true'
+    keyPress: 'true'
     pause: 2000
     speed: 1000
+    auto: 'true'
+    loop: 'true'
 ---
 
 # Shop Geek Stuff
