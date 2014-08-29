@@ -24,7 +24,7 @@
         {% if page.header.lightslider.height %}height: {{ page.header.lightslider.height }};{% endif %}
     ">
       {% for panel in page.content|split('<hr />') %}
-      {% set panel_image = page.media['image-'~loop.index~'.jpg'].brightness(-100) %}
+      {% set panel_image = page.media['image-'~loop.index~'.jpg'].brightness(page.header.lightslider.brightness|default('-100')) %}
       <li>
         <div class="panel-bg" style="
             {% if panel_image %}background-image: url({{ panel_image.url }});{% endif %}

@@ -30,6 +30,7 @@ visible: false
 lightslider:
     #min_height: 290px;
     height: 280px;
+    brightness: -100
     mode: 'slide'
     pager: 'true'
     controls: 'true'
