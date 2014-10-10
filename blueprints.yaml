@@ -12,9 +12,8 @@ keywords: lightslider, plugin, slider, images, carousel
 bugs: https://lightslider.com/getgrav/grav-plugin-lightslider/issues
 license: MIT
 
-validation: strict
-
 form:
+  validation: strict
   fields:
     enabled:
       type: toggle
