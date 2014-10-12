@@ -32,7 +32,6 @@ class LightsliderPlugin extends Plugin
         } else {
             $page->header()->lightslider = $defaults;
         }
-
     }
 
     /**
