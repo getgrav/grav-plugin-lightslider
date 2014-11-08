@@ -34,7 +34,9 @@ class LightsliderPlugin extends Plugin
      */
     public function onPageInitialized()
     {
-        if (!$this->active) return;
+        if (!$this->active) {
+            return;
+        }
 
         $defaults = (array) $this->config->get('plugins.lightslider');
 
@@ -52,7 +54,9 @@ class LightsliderPlugin extends Plugin
      */
     public function onTwigTemplatePaths()
     {
-        if (!$this->active) return;
+        if (!$this->active) {
+            return;
+        }
 
         $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
     }
@@ -62,7 +66,9 @@ class LightsliderPlugin extends Plugin
      */
     public function onTwigSiteVariables()
     {
-        if (!$this->active) return;
+        if (!$this->active) {
+            return;
+        }
 
         if ($this->config->get('plugins.lightslider.built_in_css')) {
             $this->grav['assets']
