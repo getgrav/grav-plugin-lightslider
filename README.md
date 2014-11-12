@@ -71,6 +71,14 @@ ___
 
 This page has 3 sections defined by the `___` separator. Each section will be associated with an image provided alongside this `lightslider.md` file.  For example the first section will be displayed on top of `image-1.jpg` image file.
 
+Just because LightSlider runs as a modular page, doesn't mean it has to run on a modular page. In our [Shop Site Skeleton](http://github.com/grav/grav-skeleton-shop-site/archive/master.zip), we faked a modular page by adding a string that tells Grav to find our LightSlider page and load it as `page` to the included `modular/lightslider.html.twig` template. Basically, we injected the modular page into a non-modular page.
+
+Here is the string we used in the `snipcart.html.twig` file which acts as the template file for the front page of the Shop Site Skeleton.
+
+    {% include 'modular/lightslider.html.twig' with {'page': page.find('/slider')} %}
+
+Our LightSlider page, which was located in `/your/site/grav/user/pages/slider`, was set up as any other modular LightSlider page.
+
 > Note: If you want to see this plugin in action, have a look at our [Shop Site Skeleton](http://github.com/grav/grav-skeleton-shop-site/archive/master.zip) 
 
 # Updating
@@ -87,6 +95,11 @@ This command will check your Grav install to see if your LightSlider plugin is d
 
 ## Manual Update
 
-Manually updating LightSlider is pretty simple. You would follow all of the steps listed for the manual installation above, but you will need to delete the existing `lightslider` folder found under `/your/site/grav/user/plugins/` first. 
+Manually updating LightSlider is pretty simple. Here is what you will need to do to get this done:
+
+* Delete the `your/site/user/plugins/lightslider` directory.
+* Downalod the new version of the LightSlider plugin from either [GitHub](https://github.com/getgrav/grav-plugin-lightslider) or [GetGrav.org](http://getgrav.org/downloads/plugins#extras).
+* Unzip the zip file in `your/site/user/plugins` and rename the resulting folder to `lightslider`.
+* Clear the Grav cache. The simplest way to do this is by going to the root Grav directory in terminal and typing `bin/grav clear-cache`.
 
 > Note: Any changes you have made to any of the files listed under this directory will also be removed and replaced by the new set. Any files located elsewhere (for example a YAML settings file placed in `user/config/plugins`) will remain intact.
