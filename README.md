@@ -69,7 +69,29 @@ ___
 ## A great selection of **bits** and **bobs**
 ```
 
-This page has 3 sections defined by the `___` separator. Each section will be associated with an image provided alongside this `lightslider.md` file.  For example the first section will be displayed on top of `image-1.jpg` image file.
+Here is a quick breakdown of LightSlider's variables you can use in this plugin:
+
+|   Variable  |                                                        Description                                                        |
+| :---------- | :------------------------------------------------------------------------------------------------------------------------ |
+| slideMargin | This option sets the spacing between each slide.                                                                          |
+| slideMove   | This option sets the number of slides moved at a time. The default setting is `1`.                                        |
+| mode        | Sets the transition mode. Your options are `slide` and `fade`.                                                            |
+| pager       | Toggles the pagination that appears along with the LightSlider. Can be set to `'true'` or `'false'`.                      |
+| controls    | Enables the frontend controls, giving visitors the ability to switch between slides. Can be set to `'true'` or `'false'`. |
+| keyPress    | Enables keyboard navigation between slides. Can be set to `'true'` or `'false'`.                                          |
+| pause       | Sets the time (in milliseconds) between automatic transitions.                                                            |
+| speed       | Sets the time (in milliseconds) of the transition between slides.                                                         |
+| auto        | Sets whether or not automatic transitions is enabled. Can be set to `'true'` or `'false'`.                                |
+| loop        | Sets whether or not to loop the slides or stop at the last slide. Can be set to `'true'` or `'false'`.                    |
+| easing      | This option sets the type of easing used in the jquery animation.                                                         |
+
+> Note: The settings of `'true'` and `'false'` require single or double quotes in order to work properly.
+
+You can find more variables, as well as information on how to use them on the the original LightSlider project [documentation](http://sachinchoolur.github.io/lightslider/settings.html).
+
+This page also contains three sections defined by the `___` separator. Each section will be associated with an image provided alongside this `lightslider.md` file.  For example the first section will be displayed on top of `image-1.jpg` image file.
+
+## Injecting LightSlider into a non-modular Page
 
 Just because LightSlider is designed to run on a modular page, doesn't mean it has to be. 
 
