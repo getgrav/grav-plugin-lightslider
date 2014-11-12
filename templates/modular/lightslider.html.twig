@@ -2,11 +2,8 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $("#lightSlider").lightSlider({
-        slideWidth: {{ settings.slideWidth|default('270') }},
         slideMargin: {{ settings.slideMargin|default('0') }},
         slideMove: {{ settings.slideMove|default('1') }},
-        minSlide: {{ settings.minSlide|default('1') }},
-        maxSlide: {{ settings.maxSlide|default('1') }},
         mode: '{{ settings.mode|default('slide') }}',
         pager: {{ settings.pager|default('true') }},
         controls: {{ settings.controls|default('true') }},
@@ -15,7 +12,7 @@
         speed: {{ settings.speed|default('1000') }},
         auto: {{ settings.auto|default('false') }},
         loop: {{ settings.loop|default('true') }},
-        easing: '{{ settings.easing|default('') }}',
+        easing: '{{ settings.easing|default('') }}'
     });
   });
 </script>
