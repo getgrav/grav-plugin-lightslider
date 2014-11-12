@@ -71,7 +71,9 @@ ___
 
 This page has 3 sections defined by the `___` separator. Each section will be associated with an image provided alongside this `lightslider.md` file.  For example the first section will be displayed on top of `image-1.jpg` image file.
 
-Just because LightSlider runs as a modular page, doesn't mean it has to run on a modular page. In our [Shop Site Skeleton](http://github.com/grav/grav-skeleton-shop-site/archive/master.zip), we faked a modular page by adding a string that tells Grav to find our LightSlider page and load it as `page` to the included `modular/lightslider.html.twig` template. Basically, we injected the modular page into a non-modular page.
+Just because LightSlider is designed to run on a modular page, doesn't mean it has to be. 
+
+In our [Shop Site Skeleton](http://github.com/grav/grav-skeleton-shop-site/archive/master.zip), we faked a modular page by adding a string that tells Grav to find our LightSlider page and load it as `page` to the included `modular/lightslider.html.twig` template.
 
 Here is the string we used in the `snipcart.html.twig` file which acts as the template file for the front page of the Shop Site Skeleton.
 
