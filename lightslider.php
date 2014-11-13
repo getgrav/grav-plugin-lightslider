@@ -10,10 +10,10 @@ class LightsliderPlugin extends Plugin
     /**
      * @return array
      */
-    public static function getSubscribedEvents() {
+    public static function getSubscribedEvents()
+    {
         return [
             'onPluginsInitialized' => ['onPluginsInitialized', 0],
-            'onPageInitialized' => ['onPageInitialized', 0],
             'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
             'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
         ];
@@ -26,26 +26,6 @@ class LightsliderPlugin extends Plugin
     {
         if ($this->isAdmin()) {
             $this->active = false;
-        }
-    }
-
-    /**
-     * Initialize configuration
-     */
-    public function onPageInitialized()
-    {
-        if (!$this->active) {
-            return;
-        }
-
-        $defaults = (array) $this->config->get('plugins.lightslider');
-
-        /** @var Page $page */
-        $page = $this->grav['page'];
-        if (isset($page->header()->lightslider)) {
-            $page->header()->lightslider = array_merge($defaults, $page->header()->lightslider);
-        } else {
-            $page->header()->lightslider = $defaults;
         }
     }
 

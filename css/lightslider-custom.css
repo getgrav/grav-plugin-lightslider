@@ -1,9 +1,10 @@
-#lightSlider, #lightSlider li { box-sizing: content-box;}
-#lightSlider { padding-left: 0; list-style: none; overflow: hidden;}
-#lightSlider li { width: 100%; display: block; float: left; color: #eee;}
+/*#lightSlider, #lightSlider li { box-sizing: content-box;}*/
+#lightSlider { padding: 0; list-style: none; overflow: hidden;margin: 0;}
+/*#lightSlider li { width: 100%; display: block; float: left; color: #eee;}*/
+#lightSlider li img {display: block; width: 100%;}
 #lightSlider .panel-bg {background-size: cover; background-position: center;}
-#lightSlider .panel-padding {padding: 50px 80px}
-#lightSlider h1, #lightSlider h2, #lightSlider h3, #lightSlider h4 { color: #fff;}
-.csSlideOuter .csPager.cSpg > li a { height: 12px !important; width: 12px !important; border-radius: 100% !important;}
+/*#lightSlider .panel-padding {padding: 50px 80px}*/
+#lightSlider h1, #lightSlider h2, #lightSlider h3, #lightSlider h4 { color: #fff;line-height:1.1;}
+.lSSlideOuter .lSPager.lSpg > li a { height: 12px !important; width: 12px !important; border-radius: 100% !important;}
 
 

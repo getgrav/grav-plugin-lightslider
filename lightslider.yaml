@@ -1,10 +1,27 @@
 enabled: true
 built_in_css: true
-# min_height: 290px;
-# height: 280px;
+slider_type: text
+slider_type_text:
+  height: 280px
+  #min_height: 300px
+  vertical_padding: 80px
+  horizontal_padding: 50px
+  brightness: 0
+item: 1
+slideMove: 1
+slideMargin: 0
+loop: 'false'
 mode: 'fade'
-pager: 'true'
 controls: 'true'
 keyPress: 'true'
+auto: 'false'
 pause: 2000
 speed: 1000
+pager: 'true'
+gallery: 'false'
+gallery_thumb_width: 100
+gallery_thumb_height: 100
+gallery_margin: 15
+gallery_thumb_margin: 5
+enableTouch: 'true'
+enableDrag: 'true'
