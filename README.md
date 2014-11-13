@@ -1,16 +1,34 @@
 # Grav lightSlider Plugin
 
+![Grav lightSlider](assets/readme_0.png)
 
-`lightslider` is a [Grav](http://github.com/getgrav/grav) plugin that adds a lightweight, responsive slider.
-It uses the jQuery plugin [lightslider](http://sachinchoolur.github.io/lightslider/), hence the name.
+`lightslider` is a [Grav](http://github.com/getgrav/grav) plugin that adds a lightweight, responsive slider to your page.
+It uses the jQuery plugin [lightSlider](http://sachinchoolur.github.io/lightslider/) that provides loads of great features but is still light-weight and responsive.
+
+## Main Features
+
+* Main Features
+* Fully responsive - will adapt to any device.
+* Separate settings per breakpoint.
+* Gallery mode to create an image slideshow with thumbnails
+* Supports swipe and mouseDrag
+* Add or remove slides dynamically.
+* Small file size (9kb) (minified), fully themed, simple to implement.
+* CSS transitions with jQuery fallback.
+* Full callback API and public methods.
+* Auto play and infinite loop to create a content carousel.
+* Keyboard, arrows and dots navigation.
+* Chrome, Safari, Firefox, Opera, IE7+, IOS, Android, windows phone.
+* Slide and Fade Effects.
+* Auto width, Vertical Slide, Adaptiveheight, Rtl support...
+* Multiple instances on one page.
+* Slide anything (youtube, vimeo , google map ...)
 
 # Installation
 
 Installing the lightSlider plugin can be done in one of two ways. Our GPM (Grav Package Manager) installation method enables you to quickly and easily install the plugin with a simple terminal command, while the manual method enables you to do so via a zip file. 
 
 ## GPM Installation (Preferred)
-
-![GPM Installation](assets/readme_1.png)
 
 The simplest way to install this plugin is via the [Grav Package Manager (GPM)](http://learn.getgrav.org/advanced/grav-gpm) through your system's Terminal (also called the command line).  From the root of your Grav install type:
 
@@ -26,19 +44,60 @@ You should now have all the plugin files under
 
 	/your/site/grav/user/plugins/lightslider
 
->> NOTE: This plugin is a modular component for Grav which requires [Grav](http://github.com/getgrav/grav), the [Error](https://github.com/getgrav/grav-plugin-error) and [Problems](https://github.com/getgrav/grav-plugin-problems) plugins, and a theme to be installed in order to operate.
+> NOTE: This plugin is a modular component for Grav which requires [Grav](http://github.com/getgrav/grav), the [Error](https://github.com/getgrav/grav-plugin-error) and [Problems](https://github.com/getgrav/grav-plugin-problems) plugins, and a theme to be installed in order to operate.
 
 # Usage
 
 To best understand how lightSlider works, you should read through the original project [documentation](http://sachinchoolur.github.io/lightslider/settings.html).
 
-This plugin is intended to be used as a [modular page](http://learn.getgrav.org/content/content-pages#modular-page) within Grav. That modular page created should be called `lightslider.md` so that it will automatically use the lightslider twig template already provided in the plugin.
+This plugin is provided as a [modular page](http://learn.getgrav.org/content/content-pages#modular-page) within Grav. That modular page created should be called `lightslider.md` so that it will automatically use the lightslider twig template already provided in the plugin.
 
-The lightslider template automatically looks for filesname of the format: `image-1.jpg`, `image-2.jpg`, `image-3.jpg`, etc. It will associate each section of the page content to each image in order.  
+The plugin has **two** primary modes. Those are **text** and **image** mode. 
 
-From your page headers, you can then tweak almost all the settings that lightslider comes with. 
+## Text Mode
 
-eg:
+In this mode you can create content for each slider. Each section of slide content is defined as a single Grav page, but you divide the slides up using the markdown `---` syntax to signify a _thematic break_.
+
+When in text mode, the lightslider template automatically looks for images of the format: `image-1.jpg`, `image-2.jpg`, `image-3.jpg`, etc. It will associate each section of the page content to each image in order.  
+
+## Image Mode
+
+In image mode, every file in the folder of the page will be picked up and used for the slider in **file-order**, usually alphabetical.  In other words, if you wish a specfic order, prefix your filenames with a numeric value. For example: `01.ducks.jpg`, `02.fish.jpg`, etc.
+
+## Options
+
+The default `lightslider.yaml` file looks like this:
+
+```
+enabled: true
+built_in_css: true
+unique_id: lightSlider
+slider_type: text
+type_text_height: auto
+type_text_vertical_padding: 80px
+type_text_horizontal_padding: 50px
+type_text_brightness: 0
+item: 1
+slideMove: 1
+slideMargin: 0
+loop: 'false'
+mode: 'fade'
+controls: 'true'
+keyPress: 'true'
+auto: 'false'
+pause: 2000
+speed: 1000
+pager: 'true'
+gallery: 'false'
+gallery_thumb_width: 100
+gallery_thumb_height: 100
+gallery_margin: 15
+gallery_thumb_margin: 5
+enableTouch: 'true'
+enableDrag: 'true'
+```
+
+You can copy this file and override any defaults you wish in a file called `user/config/plugins/lightslider.yaml`.  However, the preferred approach is to set lightslider options directly in the header of your `lightslider.md` page file that should sit in the same directory as your images.  For example you could have a page such as:
 
 ```
 ---
@@ -46,14 +105,16 @@ title: Slider Content
 routable: false
 visible: false
 lightslider:
-    mode: 'slide'
+    slider_type: text
+    type_text_vertical_padding: 70px;
+    type_text_horizontal_padding: 50px;
+    type_text_brightness: -100
+    mode: slide
     pager: 'true'
     controls: 'true'
     keyPress: 'true'
     pause: 2000
     speed: 1000
-    auto: 'true'
-    loop: 'true'
 ---
 
 # Shop Geek Stuff
@@ -66,21 +127,45 @@ ___
 ## A great selection of **bits** and **bobs**
 ```
 
-Here is a quick breakdown of lightSlider's variables you can use in this plugin:
+Here is a breakdown of lightSlider's options you can use in this plugin:
 
-|   Variable  |                                                        Description                                                        |
-| :---------- | :------------------------------------------------------------------------------------------------------------------------ |
-| slideMargin | This option sets the spacing between each slide.                                                                          |
-| slideMove   | This option sets the number of slides moved at a time. The default setting is `1`.                                        |
-| mode        | Sets the transition mode. Your options are `slide` and `fade`.                                                            |
-| pager       | Toggles the pagination that appears along with the lightSlider. Can be set to `'true'` or `'false'`.                      |
-| controls    | Enables the frontend controls, giving visitors the ability to switch between slides. Can be set to `'true'` or `'false'`. |
-| keyPress    | Enables keyboard navigation between slides. Can be set to `'true'` or `'false'`.                                          |
-| pause       | Sets the time (in milliseconds) between automatic transitions.                                                            |
-| speed       | Sets the time (in milliseconds) of the transition between slides.                                                         |
-| auto        | Sets whether or not automatic transitions is enabled. Can be set to `'true'` or `'false'`.                                |
-| loop        | Sets whether or not to loop the slides or stop at the last slide. Can be set to `'true'` or `'false'`.                    |
-| easing      | This option sets the type of easing used in the jquery animation.                                                         |
+### Plugin Options
+
+|            Option            |                                         Description                                          |
+| :--------------------------- | -------------------------------------------------------------------------------------------- |
+| unique_id                    | A unique ID that will be used for this instance. Defaults to `lightSlider`                   |
+| slider_type                  | Either `text` or `image`. See above for more information                                     |
+| type_text_height             | CSS attribute for height. Defaults to `auto` but could be `300px`                            |
+| type_text_vertical_padding   | CSS attribute for vertical padding. Defaults to `80px`                                       |
+| type_text_horizontal_padding | CSS attribute for horizontal padding. Defaults to `50px`                                     |
+| type_text_brightness         | Optional brightness value ranging from daker `-255` to  lighter `255` where `0` is no change |
+
+### lightSlider Options
+
+|     Option     |                                                        Description                                                         |
+| :------------- | :------------------------------------------------------------------------------------------------------------------------- |
+| item           | The number of slides to show at a time                                                                                     |
+| slideMove      | This option sets the number of slides moved at a time. The default setting is `1`.                                         |
+| slideMargin    | This option sets the spacing between each slide.                                                                           |
+| mode           | Sets the transition mode. Your options are `slide` and `fade`.                                                             |
+| cssEasing      | Type of easing to be used for css animations. defaults to `ease`                                                           |
+| easing         | Type of easing to be used for jquery animations. defaults to `linear`                                                      |
+| speed          | Sets the time (in milliseconds) of the transition between slides.                                                          |
+| auto           | Sets whether or not automatic transitions is enabled. Can be set to `'true'` or `'false'`.                                 |
+| loop           | Sets whether or not to loop the slides or stop at the last slide. Can be set to `'true'` or `'false'`.                     |
+| pause          | Sets the time (in milliseconds) between automatic transitions.                                                             |
+| controls       | Enables the front-end controls, giving visitors the ability to switch between slides. Can be set to `'true'` or `'false'`. |
+| keyPress       | Enables keyboard navigation between slides. Can be set to `'true'` or `'false'`.                                           |
+| adaptiveHeight | Enables keyboard navigation between slides. Can be set to `'true'` or `'false'`.                                           |
+| vertical       | change slide's direction from horizontal to Vertical. Can be set to `'true'` or `'false'`.                                 |
+| verticalHeight | set height of slider if vertical mode is active and item more than 1. Defaults to `500`                                    |
+| pager          | Toggles the pagination that appears along with the lightSlider. Can be set to `'true'` or `'false'`.                       |
+| gallery        | Enables gallery style thumbnail pager (will disable standard pager). Can be set to `'true'` or `'false'`.                  |
+| galleryMargin  | Vertical space between the bottom of the slider and the gallery. Defaults to `5`                                           |
+| thumbMargin    | Horizontal space between the gallery thumbnails. Defaults to `5`                                                           |
+| enableTouch    | Enables touch support for touch-enabled devices. Can be set to `'true'` or `'false'`.                                      |
+| enableDrag     | Enables desktop mouse drag support. Can be set to `'true'` or `'false'`.                                                   |
+
 
 > Note: The settings of `'true'` and `'false'` require single or double quotes in order to work properly.
 

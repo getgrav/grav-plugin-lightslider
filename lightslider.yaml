@@ -1,12 +1,11 @@
 enabled: true
 built_in_css: true
+unique_id: lightSlider
 slider_type: text
-slider_type_text:
-  height: 280px
-  #min_height: 300px
-  vertical_padding: 80px
-  horizontal_padding: 50px
-  brightness: 0
+type_text_height: auto
+type_text_vertical_padding: 80px
+type_text_horizontal_padding: 50px
+type_text_brightness: 0
 item: 1
 slideMove: 1
 slideMargin: 0
