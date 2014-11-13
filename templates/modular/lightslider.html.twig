@@ -1,44 +1,83 @@
-{% set settings = header.lightslider|merge(page.header.lightslider) %}
+{% set settings = {} %}
+
+{% if header.lightslider %}
+    {% set settings =  header.lightslider %}
+{% endif %}
+
+{% if page.header.lightslider %}
+    {% set settings = settings|merge(page.header.lightslider) %}
+{%  endif %}
+
+{% set settings = config.get('plugins.lightslider')|merge(settings) %}
+
+{{ dump(settings) }}
+
 <script type="text/javascript">
   $(document).ready(function() {
-    $("#lightSlider").lightSlider({
-        slideWidth: {{ settings.slideWidth|default('270') }},
-        slideMargin: {{ settings.slideMargin|default('0') }},
-        slideMove: {{ settings.slideMove|default('1') }},
-        minSlide: {{ settings.minSlide|default('1') }},
-        maxSlide: {{ settings.maxSlide|default('1') }},
+    $("#{{ settings.unique_id }}").lightSlider({
+        item: {{ settings.item|default(1) }},
+        slideMove: {{ settings.slideMove|default(3) }},
+        slideMargin: {{ settings.slideMargin|default(5) }},
         mode: '{{ settings.mode|default('slide') }}',
-        pager: {{ settings.pager|default('true') }},
+        cssEasing: '{{ settings.cssEasing|default('ease') }}',
+        easing: '{{ settings.easing|default('') }}',
+        speed: {{ settings.speed|default(1000) }},
+        auto: {{ settings.auto|default('false') }},
+        loop: {{ settings.loop|default('false') }},
+        pause: {{ settings.pause|default(2000) }},
         controls: {{ settings.controls|default('true') }},
         keyPress: {{ settings.keyPress|default('true') }},
-        pause: {{ settings.pause|default('2000') }},
-        speed: {{ settings.speed|default('1000') }},
-        auto: {{ settings.auto|default('false') }},
-        loop: {{ settings.loop|default('true') }},
-        easing: '{{ settings.easing|default('') }}',
+        adaptiveHeight: {{ settings.adaptiveHeight|default('true') }},
+        vertical: {{ settings.vertical|default('false') }},
+        verticalHeight: {{ settings.verticalHeight|default(500) }},
+        pager: {{ settings.pager|default('true') }},
+        gallery: {{ settings.gallery|default('false') }},
+        galleryMargin: {{ settings.gallery_margin|default(5) }},
+        thumbMargin: {{ settings.gallery_thumb_margin|default(5) }},
+        enableTouch: {{ settings.enableTouch|default('true') }},
+        enableDrag: {{ settings.enableDrag|default('true') }},
+
     });
   });
 </script>
 
-<div id="lightSlider-wrapper">
-    <ul id="lightSlider" style="
-        {% if settings.height %}height: {{ settings.height }};{% endif %}
-    ">
-      {% for panel in page.content|split('<hr />') %}
-      {% set panel_image = page.media['image-'~loop.index~'.jpg'].brightness(settings.brightness|default('-100')) %}
-      <li>
-        <div class="panel-bg" style="
-            {% if panel_image %}background-image: url({{ panel_image.url }});{% endif %}
-            {% if settings.min_height %}min-height: {{ settings.min_height }};{% endif %}
-            {% if settings.height %}height: {{ settings.height }};{% endif %}
-            ">
-            <div class="panel-padding">
-            {{ panel }}
-            </div>
-        </div>
-      </li>
-      {% endfor %}
+
+<div id="{{ settings.unique_id }}-wrapper" class="grav-lightslider">
+    {% if settings.slider_type == 'text' %}
+    <ul id="{{ settings.unique_id }}" style="{% if settings.type_text_height %}height: {{ settings.type_text_height }};{% endif %}">
+        {% for panel in page.content|split('<hr />') %}
+            {% set panel_media = page.media['image-'~loop.index~'.jpg'] %}
+            {% set panel_image = panel_media.brightness(settings.type_text_brightness|default('-100')).url %}
+            {% if panel_media and settings.gallery %}
+                {% set panel_data_thumb = 'data-thumb=\"'~panel_media.cropResize(settings.gallery_thumb_width|default(100),settings.gallery_thumb_height|default(100)).url~'\"' %}
+            {% endif %}
+            <li {{ panel_data_thumb }}>
+                <div class="panel-bg" style="
+                    {% if panel_image %}background-image: url({{ panel_image }});{% endif %}
+                    min-height: {{ settings.type_text_min_height|default('auto') }};
+                    height: {{ settings.type_text_height|default('auto') }};
+                    ">
+                    <div class="panel-padding {{ settings.type_text_css_class }}" style="
+                        padding: {{ settings.type_text_vertical_padding|default(0) }} {{ settings.type_text_horizontal_padding|default(0) }}
+                        ">
+                        {{ panel }}
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
     </ul>
+    {% else %}
+    <ul id="{{ settings.unique_id }}">
+        {% for image in page.media.images %}
+            {% if settings.gallery %}
+                {% set image_data_thumb = 'data-thumb=\"'~image.cropResize(settings.gallery_thumb_width|default(100),settings.gallery_thumb_height|default(100)).url~'\"' %}
+            {% endif %}
+            <li {{ image_data_thumb }}>
+                <img src="{{ image.url }}" />
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 </div>
 
 
