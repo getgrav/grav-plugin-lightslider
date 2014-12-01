@@ -13,9 +13,7 @@ class LightsliderPlugin extends Plugin
     public static function getSubscribedEvents()
     {
         return [
-            'onPluginsInitialized' => ['onPluginsInitialized', 0],
-            'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
-            'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
+            'onPluginsInitialized' => ['onPluginsInitialized', 0]
         ];
     }
 
@@ -26,7 +24,13 @@ class LightsliderPlugin extends Plugin
     {
         if ($this->isAdmin()) {
             $this->active = false;
+            return;
         }
+
+        $this->enable([
+            'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
+            'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
+        ]);
     }
 
     /**
@@ -34,10 +38,6 @@ class LightsliderPlugin extends Plugin
      */
     public function onTwigTemplatePaths()
     {
-        if (!$this->active) {
-            return;
-        }
-
         $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
     }
 
@@ -46,10 +46,6 @@ class LightsliderPlugin extends Plugin
      */
     public function onTwigSiteVariables()
     {
-        if (!$this->active) {
-            return;
-        }
-
         if ($this->config->get('plugins.lightslider.built_in_css')) {
             $this->grav['assets']
                 ->add('plugin://lightslider/css/lightslider-core.css')
