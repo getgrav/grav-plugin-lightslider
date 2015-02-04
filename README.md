@@ -115,6 +115,7 @@ lightslider:
     keyPress: 'true'
     pause: 2000
     speed: 1000
+    auto: 'true'
 ---
 
 # Shop Geek Stuff
