@@ -71,7 +71,6 @@ The default `lightslider.yaml` file looks like this:
 ```
 enabled: true
 built_in_css: true
-unique_id: lightSlider
 slider_type: text
 type_text_height: auto
 type_text_vertical_padding: 80px
@@ -133,7 +132,6 @@ Here is a breakdown of lightSlider's options you can use in this plugin:
 
 |            Option            |                                         Description                                          |
 | :--------------------------- | -------------------------------------------------------------------------------------------- |
-| unique_id                    | A unique ID that will be used for this instance. Defaults to `lightSlider`                   |
 | slider_type                  | Either `text` or `image`. See above for more information                                     |
 | type_text_height             | CSS attribute for height. Defaults to `auto` but could be `300px`                            |
 | type_text_vertical_padding   | CSS attribute for vertical padding. Defaults to `80px`                                       |

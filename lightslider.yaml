@@ -1,6 +1,5 @@
 enabled: true
 built_in_css: true
-unique_id: lightSlider
 slider_type: text
 type_text_height: auto
 type_text_vertical_padding: 80px
