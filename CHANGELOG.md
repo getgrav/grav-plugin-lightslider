@@ -1,3 +1,9 @@
+# v1.2.4
+## 02/19/2015
+
+1. [](#improved)
+    * Added reference for to load jQuery if needed
+
 # v1.2.3
 ## 02/17/2015
 
