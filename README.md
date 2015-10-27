@@ -154,7 +154,7 @@ Here is a breakdown of lightSlider's options you can use in this plugin:
 | pause          | Sets the time (in milliseconds) between automatic transitions.                                                             |
 | controls       | Enables the front-end controls, giving visitors the ability to switch between slides. Can be set to `'true'` or `'false'`. |
 | keyPress       | Enables keyboard navigation between slides. Can be set to `'true'` or `'false'`.                                           |
-| adaptiveHeight | Enables keyboard navigation between slides. Can be set to `'true'` or `'false'`.                                           |
+| adaptiveHeight | Dynamically adjust slider height based on each slide's height. Can be set to `'true'` or `'false'`.                                           |
 | vertical       | change slide's direction from horizontal to Vertical. Can be set to `'true'` or `'false'`.                                 |
 | verticalHeight | set height of slider if vertical mode is active and item more than 1. Defaults to `500`                                    |
 | pager          | Toggles the pagination that appears along with the lightSlider. Can be set to `'true'` or `'false'`.                       |
