@@ -139,7 +139,7 @@ form:
       type: toggle
       label: Auto
       highlight: true
-      default: 'false'
+      default: 'true'
       options:
         'true': Enabled
         'false': Disabled
