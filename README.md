@@ -175,7 +175,7 @@ This page also contains three sections defined by the `___` separator. Each sect
 
 Just because lightSlider is designed to run on a modular page, doesn't mean it has to be. 
 
-In our [Shop Site Skeleton](http://github.com/grav/grav-skeleton-shop-site/archive/master.zip), we faked a modular page by adding a string that tells Grav to find our lightSlider page and load it as `page` to the included `modular/lightslider.html.twig` template.
+In our [Shop Site Skeleton](http://github.com/getgrav/grav-skeleton-shop-site/archive/master.zip), we faked a modular page by adding a string that tells Grav to find our lightSlider page and load it as `page` to the included `modular/lightslider.html.twig` template.
 
 Here is the string we used in the `snipcart.html.twig` file which acts as the template file for the front page of the Shop Site Skeleton.
 
@@ -183,7 +183,7 @@ Here is the string we used in the `snipcart.html.twig` file which acts as the te
 
 Our lightSlider page, which was located in `/your/site/grav/user/pages/slider`, was set up as any other modular lightSlider page.
 
-> Note: If you want to see this plugin in action, have a look at our [Shop Site Skeleton](http://github.com/grav/grav-skeleton-shop-site/archive/master.zip) 
+> Note: If you want to see this plugin in action, have a look at our [Shop Site Skeleton](http://github.com/getgrav/grav-skeleton-shop-site/archive/master.zip)
 
 # Updating
 
