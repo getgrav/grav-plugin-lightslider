@@ -26,7 +26,7 @@ It uses the jQuery plugin [lightSlider](http://sachinchoolur.github.io/lightslid
 
 # Installation
 
-Installing the lightSlider plugin can be done in one of two ways. Our GPM (Grav Package Manager) installation method enables you to quickly and easily install the plugin with a simple terminal command, while the manual method enables you to do so via a zip file. 
+Installing the lightSlider plugin can be done in one of two ways. Our GPM (Grav Package Manager) installation method enables you to quickly and easily install the plugin with a simple terminal command, while the manual method enables you to do so via a zip file.
 
 ## GPM Installation (Preferred)
 
@@ -52,13 +52,13 @@ To best understand how lightSlider works, you should read through the original p
 
 This plugin is provided as a [modular page](http://learn.getgrav.org/content/content-pages#modular-page) within Grav. That modular page created should be called `lightslider.md` so that it will automatically use the lightslider twig template already provided in the plugin.
 
-The plugin has **two** primary modes. Those are **text** and **image** mode. 
+The plugin has **two** primary modes. Those are **text** and **image** mode.
 
 ## Text Mode
 
 In this mode you can create content for each slider. Each section of slide content is defined as a single Grav page, but you divide the slides up using the markdown `---` syntax to signify a _thematic break_.
 
-When in text mode, the lightslider template automatically looks for images of the format: `image-1.jpg`, `image-2.jpg`, `image-3.jpg`, etc. It will associate each section of the page content to each image in order.  
+When in text mode, the lightslider template automatically looks for images of the format: `image-1.jpg`, `image-2.jpg`, `image-3.jpg`, etc. It will associate each section of the page content to each image in order.
 
 ## Image Mode
 
@@ -173,7 +173,7 @@ This page also contains three sections defined by the `___` separator. Each sect
 
 ## Injecting lightSlider into a non-modular Page
 
-Just because lightSlider is designed to run on a modular page, doesn't mean it has to be. 
+Just because lightSlider is designed to run on a modular page, doesn't mean it has to be.
 
 In our [Shop Site Skeleton](http://github.com/getgrav/grav-skeleton-shop-site/archive/master.zip), we faked a modular page by adding a string that tells Grav to find our lightSlider page and load it as `page` to the included `modular/lightslider.html.twig` template.
 
