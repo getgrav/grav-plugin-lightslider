@@ -1,3 +1,12 @@
+# v1.4.0
+## 01/06/2016
+
+1. [](#new)
+    * Enable the auto rotation by default
+1. [](#bugfix)
+    * Drop a forgotten dump of the settings
+    * Fixed the links in the README
+
 # v1.3.0
 ## 08/25/2015
 

@@ -11,8 +11,6 @@
 {% set settings = config.get('plugins.lightslider')|merge(settings) %}
 {% set unique_id = 'ls-' ~ random_string(10) %}
 
-{{ dump(settings) }}
-
 <script type="text/javascript">
   $(document).ready(function() {
     $("#{{ unique_id }}").lightSlider({

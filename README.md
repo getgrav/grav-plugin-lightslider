@@ -26,7 +26,7 @@ It uses the jQuery plugin [lightSlider](http://sachinchoolur.github.io/lightslid
 
 # Installation
 
-Installing the lightSlider plugin can be done in one of two ways. Our GPM (Grav Package Manager) installation method enables you to quickly and easily install the plugin with a simple terminal command, while the manual method enables you to do so via a zip file. 
+Installing the lightSlider plugin can be done in one of two ways. Our GPM (Grav Package Manager) installation method enables you to quickly and easily install the plugin with a simple terminal command, while the manual method enables you to do so via a zip file.
 
 ## GPM Installation (Preferred)
 
@@ -52,13 +52,13 @@ To best understand how lightSlider works, you should read through the original p
 
 This plugin is provided as a [modular page](http://learn.getgrav.org/content/content-pages#modular-page) within Grav. That modular page created should be called `lightslider.md` so that it will automatically use the lightslider twig template already provided in the plugin.
 
-The plugin has **two** primary modes. Those are **text** and **image** mode. 
+The plugin has **two** primary modes. Those are **text** and **image** mode.
 
 ## Text Mode
 
 In this mode you can create content for each slider. Each section of slide content is defined as a single Grav page, but you divide the slides up using the markdown `---` syntax to signify a _thematic break_.
 
-When in text mode, the lightslider template automatically looks for images of the format: `image-1.jpg`, `image-2.jpg`, `image-3.jpg`, etc. It will associate each section of the page content to each image in order.  
+When in text mode, the lightslider template automatically looks for images of the format: `image-1.jpg`, `image-2.jpg`, `image-3.jpg`, etc. It will associate each section of the page content to each image in order.
 
 ## Image Mode
 
@@ -154,7 +154,7 @@ Here is a breakdown of lightSlider's options you can use in this plugin:
 | pause          | Sets the time (in milliseconds) between automatic transitions.                                                             |
 | controls       | Enables the front-end controls, giving visitors the ability to switch between slides. Can be set to `'true'` or `'false'`. |
 | keyPress       | Enables keyboard navigation between slides. Can be set to `'true'` or `'false'`.                                           |
-| adaptiveHeight | Enables keyboard navigation between slides. Can be set to `'true'` or `'false'`.                                           |
+| adaptiveHeight | Dynamically adjust slider height based on each slide's height. Can be set to `'true'` or `'false'`.                                           |
 | vertical       | change slide's direction from horizontal to Vertical. Can be set to `'true'` or `'false'`.                                 |
 | verticalHeight | set height of slider if vertical mode is active and item more than 1. Defaults to `500`                                    |
 | pager          | Toggles the pagination that appears along with the lightSlider. Can be set to `'true'` or `'false'`.                       |
@@ -173,9 +173,9 @@ This page also contains three sections defined by the `___` separator. Each sect
 
 ## Injecting lightSlider into a non-modular Page
 
-Just because lightSlider is designed to run on a modular page, doesn't mean it has to be. 
+Just because lightSlider is designed to run on a modular page, doesn't mean it has to be.
 
-In our [Shop Site Skeleton](http://github.com/grav/grav-skeleton-shop-site/archive/master.zip), we faked a modular page by adding a string that tells Grav to find our lightSlider page and load it as `page` to the included `modular/lightslider.html.twig` template.
+In our [Shop Site Skeleton](http://github.com/getgrav/grav-skeleton-shop-site/archive/master.zip), we faked a modular page by adding a string that tells Grav to find our lightSlider page and load it as `page` to the included `modular/lightslider.html.twig` template.
 
 Here is the string we used in the `snipcart.html.twig` file which acts as the template file for the front page of the Shop Site Skeleton.
 
@@ -183,7 +183,7 @@ Here is the string we used in the `snipcart.html.twig` file which acts as the te
 
 Our lightSlider page, which was located in `/your/site/grav/user/pages/slider`, was set up as any other modular lightSlider page.
 
-> Note: If you want to see this plugin in action, have a look at our [Shop Site Skeleton](http://github.com/grav/grav-skeleton-shop-site/archive/master.zip) 
+> Note: If you want to see this plugin in action, have a look at our [Shop Site Skeleton](http://github.com/getgrav/grav-skeleton-shop-site/archive/master.zip)
 
 # Updating
 
