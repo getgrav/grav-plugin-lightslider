@@ -1,3 +1,13 @@
+# v1.5.0
+## xx/xx/xxxx
+
+1. [](#improved)
+    * Updated Lightslider to 1.1.5
+1. [](#bugfix)
+    * Fixed stopping the animation after a click on the slider
+1. [](#new)
+    * Added the `pauseOnHover` parameter
+
 # v1.4.0
 ## 01/06/2016
 

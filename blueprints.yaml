@@ -152,6 +152,16 @@ form:
       default: 2000
       help: Sets the time (in milliseconds) between automatic transitions
 
+    pauseOnHover:
+      type: toggle
+      label: Pause on Hover
+      highlight: true
+      default: 'false'
+      options:
+        'true': Enabled
+        'false': Disabled
+      help: Sets whether or not it should pause the transitions on hover
+
     speed:
       type: text
       size: x-small
