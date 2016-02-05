@@ -48,12 +48,12 @@ class LightsliderPlugin extends Plugin
     {
         if ($this->config->get('plugins.lightslider.built_in_css')) {
             $this->grav['assets']
-                ->addCss('plugin://lightslider/css/lightslider-core.css')
+                ->addCss('plugin://lightslider/css/lightslider.css')
                 ->addCss('plugin://lightslider/css/lightslider-custom.css');
         }
 
         $this->grav['assets']
             ->add('jquery', 101)
-            ->addJs('plugin://lightslider/js/jquery.lightSlider.min.js');
+            ->addJs('plugin://lightslider/js/lightslider.min.js');
     }
 }

@@ -94,6 +94,7 @@ gallery_margin: 15
 gallery_thumb_margin: 5
 enableTouch: 'true'
 enableDrag: 'true'
+pauseOnHover: 'false'
 ```
 
 You can copy this file and override any defaults you wish in a file called `user/config/plugins/lightslider.yaml`.  However, the preferred approach is to set lightslider options directly in the header of your `lightslider.md` page file that should sit in the same directory as your images.  For example you could have a page such as:
@@ -163,7 +164,7 @@ Here is a breakdown of lightSlider's options you can use in this plugin:
 | thumbMargin    | Horizontal space between the gallery thumbnails. Defaults to `5`                                                           |
 | enableTouch    | Enables touch support for touch-enabled devices. Can be set to `'true'` or `'false'`.                                      |
 | enableDrag     | Enables desktop mouse drag support. Can be set to `'true'` or `'false'`.                                                   |
-
+| pauseOnHover   | Sets whether or not it should pause the transitions on hover. Can be set to `'true'` or `'false'`.                                                   |
 
 > Note: The settings of `'true'` and `'false'` require single or double quotes in order to work properly.
 

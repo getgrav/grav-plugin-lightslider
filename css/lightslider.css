@@ -1,4 +1,10 @@
-/** /!!! core css Should not edit !!!/**/
+/*! lightslider - v1.1.5 - 2015-10-31
+* https://github.com/sachinchoolur/lightslider
+* Copyright (c) 2015 Sachin N; Licensed MIT */
+/*! lightslider - v1.1.3 - 2015-04-14
+* https://github.com/sachinchoolur/lightslider
+* Copyright (c) 2015 Sachin N; Licensed MIT */
+/** /!!! core css Should not edit !!!/**/ 
 
 .lSSlideOuter {
     overflow: hidden;
@@ -7,7 +13,7 @@
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
+    user-select: none
 }
 .lightSlider:before, .lightSlider:after {
     content: " ";
@@ -15,6 +21,7 @@
 }
 .lightSlider {
     overflow: hidden;
+    margin: 0;
 }
 .lSSlideWrapper {
     max-width: 100%;
@@ -32,10 +39,10 @@
     -webkit-transition-property: -webkit-transform,height;
     -moz-transition-property: -moz-transform,height;
     transition-property: transform,height;
-    -webkit-transition-duration: inherit;
-    transition-duration: inherit;
-    -webkit-transition-timing-function: inherit;
-    transition-timing-function: inherit;
+    -webkit-transition-duration: inherit !important;
+    transition-duration: inherit !important;
+    -webkit-transition-timing-function: inherit !important;
+    transition-timing-function: inherit !important;
 }
 .lSSlideWrapper .lSFade {
     position: relative;
@@ -52,12 +59,12 @@
     opacity: 0;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
-    -webkit-transition-duration: inherit;
-    transition-duration: inherit;
+    -webkit-transition-duration: inherit !important;
+    transition-duration: inherit !important;
     -webkit-transition-property: opacity;
     transition-property: opacity;
-    -webkit-transition-timing-function: inherit;
-    transition-timing-function: inherit;
+    -webkit-transition-timing-function: inherit !important;
+    transition-timing-function: inherit !important;
 }
 .lSSlideWrapper .lSFade > *.active {
     z-index: 10;
@@ -123,13 +130,12 @@
     user-select: none;
 }
 .lSSlideOuter .lSPager.lSGallery li {
-    opacity: 0.7;
     overflow: hidden;
-    -webkit-transition: opacity 0.35s linear 0s;
-    transition: opacity 0.35s linear 0s;
+    -webkit-transition: border-radius 0.12s linear 0s 0.35s linear 0s;
+    transition: border-radius 0.12s linear 0s 0.35s linear 0s;
 }
 .lSSlideOuter .lSPager.lSGallery li.active, .lSSlideOuter .lSPager.lSGallery li:hover {
-    opacity: 1;
+    border-radius: 5px;
 }
 .lSSlideOuter .lSPager.lSGallery img {
     display: block;
@@ -154,7 +160,7 @@
     background-image: url('../img/controls.png');
     cursor: pointer;
     position: absolute;
-    z-index: 9999;
+    z-index: 99;
     margin-top: -16px;
     opacity: 0.5;
     -webkit-transition: opacity 0.35s linear 0s;
@@ -197,6 +203,23 @@
 .lSSlideOuter.vertical .lightSlider > * {
     width: 100% !important;
     max-width: none !important;
+}
+
+/* vertical controlls */
+.lSSlideOuter.vertical .lSAction > a {
+    left: 50%;
+    margin-left: -14px;
+    margin-top: 0;
+}
+.lSSlideOuter.vertical .lSAction > .lSNext {
+    background-position: 31px -31px;
+    bottom: 10px;
+    top: auto;
+}
+.lSSlideOuter.vertical .lSAction > .lSPrev {
+    background-position: 0 -31px;
+    bottom: auto;
+    top: 10px;
 }
 /* vertical */
 
@@ -353,4 +376,20 @@
     -webkit-animation: rightEnd 0.3s;
     animation: rightEnd 0.3s;
     position: relative;
+}
+/*/  GRab cursor */
+.lightSlider.lsGrab > * {
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: -o-grab;
+  cursor: -ms-grab;
+  cursor: grab;
+}
+.lightSlider.lsGrabbing > * {
+  cursor: move;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: -o-grabbing;
+  cursor: -ms-grabbing;
+  cursor: grabbing;
 }

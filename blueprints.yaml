@@ -1,5 +1,5 @@
 name: LightSlider
-version: 1.4.0
+version: 1.5.0
 description: "This plugin wraps the [Lightslider](http://sachinchoolur.github.io/lightslider/) jQuery plugin and let's you add nice content sliders."
 icon: bolt
 author:
@@ -17,12 +17,12 @@ form:
   fields:
     enabled:
       type: toggle
-      label: Plugin status
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
       highlight: 1
       default: 0
       options:
-        1: Enabled
-        0: Disabled
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
 
@@ -32,8 +32,8 @@ form:
       highlight: 1
       default: 1
       options:
-        1: Enabled
-        0: Disabled
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
 
@@ -151,6 +151,16 @@ form:
       label: Pause
       default: 2000
       help: Sets the time (in milliseconds) between automatic transitions
+
+    pauseOnHover:
+      type: toggle
+      label: Pause on Hover
+      highlight: true
+      default: 'false'
+      options:
+        'true': Enabled
+        'false': Disabled
+      help: Sets whether or not it should pause the transitions on hover
 
     speed:
       type: text
