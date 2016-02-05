@@ -1,5 +1,5 @@
 # v1.5.0
-## xx/xx/xxxx
+## 02/XX/2016
 
 1. [](#improved)
     * Updated Lightslider to 1.1.5
