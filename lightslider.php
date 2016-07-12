@@ -3,6 +3,7 @@ namespace Grav\Plugin;
 
 use \Grav\Common\Grav;
 use \Grav\Common\Plugin;
+use \RocketTheme\Toolbox\Event\Event;
 
 class LightsliderPlugin extends Plugin
 {
@@ -17,7 +18,11 @@ class LightsliderPlugin extends Plugin
         ];
     }
 
-    public function onGetPageTemplates($event)
+    /**
+     * Register template type with blueprint
+     * @param Event $event
+     */
+    public function onGetPageTemplates(Event $event)
     {
         /**
          * @var Types $types
