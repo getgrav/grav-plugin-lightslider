@@ -45,6 +45,7 @@ form:
       options:
         text: Text
         image: Image
+        manager: Manager
 
     type_text_height:
       type: text

@@ -41,57 +41,51 @@
 </script>
 
 <div id="{{ unique_id }}-wrapper" class="grav-lightslider">
-
-  {% if settings.slider_type == 'text' %}
-
+    {% if settings.slider_type == 'text' %}
     <ul id="{{ unique_id }}" style="{% if settings.type_text_height %}height: {{ settings.type_text_height }};{% endif %}">
-
-      {% for panel in page.content|split('<hr />') %}
-        {% set panel_media = page.media['image-'~loop.index~'.jpg'] %}
-        {% set panel_image = panel_media.brightness(settings.type_text_brightness|default('-100')).url %}
-        {% if panel_media and settings.gallery %}
-            {% set panel_data_thumb = 'data-thumb=\"'~panel_media.cropResize(settings.gallery_thumb_width|default(100),settings.gallery_thumb_height|default(100)).url~'\"' %}
-        {% endif %}
-
-        <li {{ panel_data_thumb }}>
-            <div class="panel-bg" style="
-                {% if panel_image %}background-image: url({{ panel_image }});{% endif %}
-                min-height: {{ settings.type_text_min_height|default('auto') }};
-                height: {{ settings.type_text_height|default('auto') }};
-                ">
-                <div class="panel-padding {{ settings.type_text_css_class }}" style="
-                    padding: {{ settings.type_text_vertical_padding|default(0) }} {{ settings.type_text_horizontal_padding|default(0) }}
+        {% for panel in page.content|split('<hr />') %}
+            {% set panel_media = page.media['image-'~loop.index~'.jpg'] %}
+            {% set panel_image = panel_media.brightness(settings.type_text_brightness|default('-100')).url %}
+            {% if panel_media and settings.gallery %}
+                {% set panel_data_thumb = 'data-thumb=\"'~panel_media.cropResize(settings.gallery_thumb_width|default(100),settings.gallery_thumb_height|default(100)).url~'\"' %}
+            {% endif %}
+            <li {{ panel_data_thumb }}>
+                <div class="panel-bg" style="
+                    {% if panel_image %}background-image: url({{ panel_image }});{% endif %}
+                    min-height: {{ settings.type_text_min_height|default('auto') }};
+                    height: {{ settings.type_text_height|default('auto') }};
                     ">
-                    {{ panel }}
+                    <div class="panel-padding {{ settings.type_text_css_class }}" style="
+                        padding: {{ settings.type_text_vertical_padding|default(0) }} {{ settings.type_text_horizontal_padding|default(0) }}
+                        ">
+                        {{ panel }}
+                    </div>
                 </div>
-            </div>
-        </li>
-
-      {% endfor %}
-
+            </li>
+        {% endfor %}
     </ul>
-
-  {% else %}
-
+    {% elseif settings.slider_type == 'image' %}
     <ul id="{{ unique_id }}">
-
-      {% for slide in page.header.slides %}
-        {% set image = page.media[slide.image] %}
-        {% if settings.gallery %}
-          {% set image_data_thumb = 'data-thumb=\"'~image.cropResize(settings.gallery_thumb_width|default(100),settings.gallery_thumb_height|default(100)).url~'\"' %}
-        {% endif %}
-
-        <li {{ image_data_thumb }}>
-          <img src="{{ image.url }}" />
-        </li>
-
-      {% endfor %}
-
+        {% for image in page.media.images %}
+            {% if settings.gallery %}
+                {% set image_data_thumb = 'data-thumb=\"'~image.cropResize(settings.gallery_thumb_width|default(100),settings.gallery_thumb_height|default(100)).url~'\"' %}
+            {% endif %}
+            <li {{ image_data_thumb }}>
+                <img src="{{ image.url }}" />
+            </li>
+        {% endfor %}
     </ul>
-
-  {% endif %}
-
+    {% else %}
+    <ul id="{{ unique_id }}">
+        {% for slide in page.header.slides %}
+            {% set image = page.media[slide.image] %}
+            {% if settings.gallery %}
+                {% set image_data_thumb = 'data-thumb=\"'~image.cropResize(settings.gallery_thumb_width|default(100),settings.gallery_thumb_height|default(100)).url~'\"' %}
+            {% endif %}
+            <li {{ image_data_thumb }}>
+                <img src="{{ image.url }}" />
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 </div>
-
-
-

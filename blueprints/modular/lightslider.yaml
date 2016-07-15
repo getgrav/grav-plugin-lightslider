@@ -23,6 +23,12 @@ form:
           type: tab
           title: Slides
           fields:
+
+            parse:
+              type: display
+              size: 'large button-bar danger'
+              content: '<button class="button parse"><i class="fa fa-fw fa-warning"></i> Parse media</button><span>Warning! This will remove all slides!</span>'
+
             header.slides:
               name: slides
               type: list
@@ -83,14 +89,16 @@ form:
             header.lightslider.slider_type:
               label: PLUGIN_LIGHTSLIDER.SLIDER_TYPE
               help: PLUGIN_LIGHTSLIDER.SLIDER_TYPE_HELP
-              type: select
-              size: small
+              highlight: manager
+              type: toggle
+              size: large
               toggleable: true
               classes: fancy
               default: text
               options:
                 text: Text
                 image: Image
+                manager: Manager
 
             header.lightslider.type_text_height:
               label: PLUGIN_LIGHTSLIDER.TYPE_TEXT_HEIGHT
