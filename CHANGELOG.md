@@ -1,3 +1,9 @@
+# v1.5.1
+## XX/XX/2016
+
+1. [](#bugfix)
+    * Fixed extra `}` character showing up above slider
+
 # v1.5.0
 ## 02/05/2016
 

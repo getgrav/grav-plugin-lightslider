@@ -10,7 +10,6 @@
 
 {% set settings = config.get('plugins.lightslider')|merge(settings) %}
 {% if settings.unique_id %}{% set unique_id = settings.unique_id %}{% else %}{% set unique_id = 'ls-' ~ random_string(10) %}{% endif %}
-}
 
 <script type="text/javascript">
   $(document).ready(function() {
