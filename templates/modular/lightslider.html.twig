@@ -51,7 +51,7 @@
             {% if panel_media and settings.gallery %}
                 {% set panel_data_thumb = 'data-thumb=\"'~panel_media.cropResize(settings.gallery_thumb_width|default(100),settings.gallery_thumb_height|default(100)).url~'\"' %}
             {% endif %}
-            <li {{ panel_data_thumb }}>
+            <li {{ panel_data_thumb|raw }}>
                 <div class="panel-bg" style="
                     {% if panel_image %}background-image: url({{ panel_image }});{% endif %}
                     min-height: {{ settings.type_text_min_height|default('auto') }};
@@ -60,7 +60,7 @@
                     <div class="panel-padding {{ settings.type_text_css_class }}" style="
                         padding: {{ settings.type_text_vertical_padding|default(0) }} {{ settings.type_text_horizontal_padding|default(0) }}
                         ">
-                        {{ panel }}
+                        {{ panel|raw }}
                     </div>
                 </div>
             </li>

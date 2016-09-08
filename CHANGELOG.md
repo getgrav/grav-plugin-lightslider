@@ -1,6 +1,8 @@
 # v1.5.1
 ## XX/XX/2016
 
+1. [](#improved)
+    * Added support for Grav's autoescape twig setting
 1. [](#bugfix)
     * Fixed extra `}` character showing up above slider
 
