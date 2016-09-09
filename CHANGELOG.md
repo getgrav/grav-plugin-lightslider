@@ -1,8 +1,9 @@
 # v1.5.1
-## XX/XX/2016
+## 08/09/2016
 
 1. [](#improved)
     * Added support for Grav's autoescape twig setting
+    * Added support for `unqiue_id` config option
 1. [](#bugfix)
     * Fixed extra `}` character showing up above slider
 
