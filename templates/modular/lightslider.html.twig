@@ -11,36 +11,34 @@
 {% set settings = config.get('plugins.lightslider')|merge(settings) %}
 {% if settings.unique_id %}{% set unique_id = settings.unique_id %}{% else %}{% set unique_id = 'ls-' ~ random_string(10) %}{% endif %}
 
+{% do assets.addInlineJs('jQuery(document).ready(function($){$("#"+window.lightSlider.gravConfig.id).lightSlider(window.lightSlider.gravConfig.options)});', 120) %}
+
 <script type="text/javascript">
-  $(document).ready(function() {
-    $("#{{ unique_id }}").lightSlider({
-        item: {{ settings.item|default(1) }},
-        slideMove: {{ settings.slideMove|default(3) }},
-        slideMargin: {{ settings.slideMargin|default(5) }},
-        mode: '{{ settings.mode|default('slide') }}',
-        cssEasing: '{{ settings.cssEasing|default('ease') }}',
-        easing: '{{ settings.easing|default('') }}',
-        speed: {{ settings.speed|default(1000) }},
-        auto: {{ settings.auto|default('false') }},
-        loop: {{ settings.loop|default('false') }},
-        pause: {{ settings.pause|default(2000) }},
-        pauseOnHover: {{ settings.pauseOnHover|default(false) }},
-        controls: {{ settings.controls|default('true') }},
-        keyPress: {{ settings.keyPress|default('true') }},
-        adaptiveHeight: {{ settings.adaptiveHeight|default('true') }},
-        vertical: {{ settings.vertical|default('false') }},
-        verticalHeight: {{ settings.verticalHeight|default(500) }},
-        pager: {{ settings.pager|default('true') }},
-        gallery: {{ settings.gallery|default('false') }},
-        galleryMargin: {{ settings.gallery_margin|default(5) }},
-        thumbMargin: {{ settings.gallery_thumb_margin|default(5) }},
-        enableTouch: {{ settings.enableTouch|default('true') }},
-        enableDrag: {{ settings.enableDrag|default('true') }},
-
-    });
-  });
++(function(window, document, undefined) {
+  window['lightSlider'] = {
+    gravConfig: {
+      id: "{{ unique_id }}",
+      options: { //
+        {% for key, field in settings %}
+          {% if key == 'mode'
+            or key == 'cssEasing'
+            or key == 'easing'
+          %}
+            {{ key }}: "{{ field }}",
+          {% elseif key == 'type_text_height'
+            or key == 'type_text_vertical_padding'
+            or key == 'type_text_horizontal_padding'
+            or key == 'slider_type'
+          %}
+          {% else %}
+            {{ key }}: {{ field | default(0) }},
+          {% endif %}
+        {% endfor %}
+      }
+    }
+  };
+})(window, document);
 </script>
-
 
 <div id="{{ unique_id }}-wrapper" class="grav-lightslider">
     {% if settings.slider_type == 'text' %}
@@ -66,7 +64,7 @@
             </li>
         {% endfor %}
     </ul>
-    {% else %}
+    {% elseif settings.slider_type == 'image' %}
     <ul id="{{ unique_id }}">
         {% for image in page.media.images %}
             {% if settings.gallery %}
@@ -77,8 +75,17 @@
             </li>
         {% endfor %}
     </ul>
+    {% else %}
+    <ul id="{{ unique_id }}">
+        {% for slide in page.header.slides %}
+            {% set image = page.media[slide.image] %}
+            {% if settings.gallery %}
+                {% set image_data_thumb = 'data-thumb=\"'~image.cropResize(settings.gallery_thumb_width|default(100),settings.gallery_thumb_height|default(100)).url~'\"' %}
+            {% endif %}
+            <li {{ image_data_thumb }}>
+                <img src="{{ image.url }}" />
+            </li>
+        {% endfor %}
+    </ul>
     {% endif %}
 </div>
-
-
-
