@@ -1,0 +1,346 @@
+title: Lightslider
+'@extends': default
+
+form:
+  fields:
+    tabs:
+      fields:
+        advanced:
+          fields:
+            columns:
+              fields:
+                column1:
+                  fields:
+                    name:
+                      default: modular/lightslider
+                      '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+            overrides:
+              fields:
+                header.template:
+                  default: modular/lightslider
+                  '@data-options': '\Grav\Common\Page\Pages::modularTypes'
+        slides:
+          type: tab
+          title: Slides
+          fields:
+
+            parse:
+              type: display
+              size: 'large button-bar danger'
+              content: '<button class="button parse"><i class="fa fa-fw fa-warning"></i> Parse media</button><span>Warning! This will remove all slides!</span>'
+
+            header.slides:
+              name: slides
+              type: list
+              label: Slides
+              fields:
+
+                .image:
+                  type: pagemediaselect
+                  label: Slide
+                  validate:
+                    required: true
+
+                .caption:
+                  type: textarea
+                  label: Caption
+
+                .link:
+                  type: pages
+                  label: Link
+                  options:
+                    0: PLUGIN_LIGHTSLIDER.NO_LINK
+
+        lightslider:
+          type: tab
+          title: Lightslider
+          fields:
+
+            header.lightslider.enabled:
+              label: PLUGIN_LIGHTSLIDER.ENABLED
+              help: PLUGIN_LIGHTSLIDER.ENABLED_HELP
+              type: toggle
+              toggleable: true
+              default: 1
+              help: Help
+              highlight: 1
+              size: small
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+            header.lightslider.built_in_css:
+              label: PLUGIN_LIGHTSLIDER.BUILT_IN_CSS
+              help: PLUGIN_LIGHTSLIDER.BUILT_IN_CSS_HELP
+              type: toggle
+              toggleable: true
+              default: 1
+              help: Help
+              highlight: 1
+              size: small
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+            header.lightslider.slider_type:
+              label: PLUGIN_LIGHTSLIDER.SLIDER_TYPE
+              help: PLUGIN_LIGHTSLIDER.SLIDER_TYPE_HELP
+              highlight: manager
+              type: toggle
+              size: large
+              toggleable: true
+              classes: fancy
+              default: text
+              options:
+                text: Text
+                image: Image
+                manager: Manager
+
+            header.lightslider.type_text_height:
+              label: PLUGIN_LIGHTSLIDER.TYPE_TEXT_HEIGHT
+              help: PLUGIN_LIGHTSLIDER.TYPE_TEXT_HEIGHT_HELP
+              type: text
+              size: small
+              toggleable: true
+              default: auto
+
+            header.lightslider.type_text_vertical_padding:
+              label: PLUGIN_LIGHTSLIDER.TYPE_TEXT_VERTICAL_PADDING
+              help: PLUGIN_LIGHTSLIDER.TYPE_TEXT_VERTICAL_PADDING_HELP
+              type: text
+              size: small
+              toggleable: true
+              default: 80px
+
+            header.lightslider.type_text_horizontal_padding:
+              label: PLUGIN_LIGHTSLIDER.TYPE_TEXT_HORIZONTAL_PADDING
+              help: PLUGIN_LIGHTSLIDER.TYPE_TEXT_HORIZONTAL_PADDING_HELP
+              type: text
+              size: small
+              toggleable: true
+              default: 50px
+
+            header.lightslider.type_text_brightness:
+              label: PLUGIN_LIGHTSLIDER.TYPE_TEXT_BRIGHTNESS
+              help: PLUGIN_LIGHTSLIDER.TYPE_TEXT_BRIGHTNESS_HELP
+              type: text
+              size: small
+              toggleable: true
+              default: 0
+
+            header.lightslider.item:
+              label: PLUGIN_LIGHTSLIDER.ITEM
+              help: PLUGIN_LIGHTSLIDER.ITEM_HELP
+              type: text
+              size: small
+              toggleable: true
+              default: 1
+              help: Number of slides to show at a time
+
+            header.lightslider.slideMove:
+              label: PLUGIN_LIGHTSLIDER.SLIDEMOVE
+              help: PLUGIN_LIGHTSLIDER.SLIDEMOVE_HELP
+              type: text
+              size: small
+              toggleable: true
+              default: 1
+
+            header.lightslider.slideMargin:
+              label: PLUGIN_LIGHTSLIDER.SLIDEMARGIN
+              help: PLUGIN_LIGHTSLIDER.SLIDEMARGIN_HELP
+              type: text
+              size: small
+              toggleable: true
+              default: 0
+
+            header.lightslider.loop:
+              label: PLUGIN_LIGHTSLIDER.LOOP
+              help: PLUGIN_LIGHTSLIDER.LOOP_HELP
+              type: toggle
+              toggleable: true
+              default: 0
+              help: Help
+              size: small
+              highlight: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+            header.lightslider.mode:
+              label: PLUGIN_LIGHTSLIDER.MODE
+              help: PLUGIN_LIGHTSLIDER.MODE_HELP
+              type: select
+              size: small
+              toggleable: true
+              classes: fancy
+              default: fade
+              options:
+                fade: Fade
+                slide: Slide
+
+            header.lightslider.controls:
+              label: PLUGIN_LIGHTSLIDER.CONTROLS
+              help: PLUGIN_LIGHTSLIDER.CONTROLS_HELP
+              type: toggle
+              size: small
+              toggleable: true
+              default: true
+              highlight: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+
+            header.lightslider.keyPress:
+              label: PLUGIN_LIGHTSLIDER.KEYPRESS
+              help: PLUGIN_LIGHTSLIDER.KEYPRESS_HELP
+              type: toggle
+              size: small
+              toggleable: true
+              default: 1
+              highlight: 1
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+            header.lightslider.auto:
+              label: PLUGIN_LIGHTSLIDER.AUTO
+              help: PLUGIN_LIGHTSLIDER.AUTO_HELP
+              type: toggle
+              size: small
+              toggleable: true
+              default: 1
+              highlight: 1
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+            header.lightslider.pause:
+              label: PLUGIN_LIGHTSLIDER.PAUSE
+              help: PLUGIN_LIGHTSLIDER.PAUSE_HELP
+              type: text
+              size: small
+              toggleable: true
+              default: 2000
+
+            header.lightslider.speed:
+              label: PLUGIN_LIGHTSLIDER.SPEED
+              help: PLUGIN_LIGHTSLIDER.SPEED_HELP
+              type: text
+              size: small
+              toggleable: true
+              default: 1000
+
+            header.lightslider.pager:
+              label: PLUGIN_LIGHTSLIDER.PAGER
+              help: PLUGIN_LIGHTSLIDER.PAGER_HELP
+              type: toggle
+              size: small
+              toggleable: true
+              default: 1
+              highlight: 1
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+            header.lightslider.gallery:
+              label: PLUGIN_LIGHTSLIDER.GALLERY
+              help: PLUGIN_LIGHTSLIDER.GALLERY_HELP
+              type: toggle
+              size: small
+              toggleable: true
+              default: 0
+              highlight: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+            header.lightslider.gallery_thumb_width:
+              label: PLUGIN_LIGHTSLIDER.GALLERY_THUMB_WIDTH
+              help: PLUGIN_LIGHTSLIDER.GALLERY_THUMB_WIDTH_HELP
+              type: text
+              size: small
+              toggleable: true
+              default: 100
+
+            header.lightslider.gallery_thumb_height:
+              label: PLUGIN_LIGHTSLIDER.GALLERY_THUMB_HEIGHT
+              help: PLUGIN_LIGHTSLIDER.GALLERY_THUMB_HEIGHT_HELP
+              type: text
+              size: small
+              toggleable: true
+              default: 100
+
+            header.lightslider.gallery_margin:
+              label: PLUGIN_LIGHTSLIDER.GALLERY_MARGIN
+              help: PLUGIN_LIGHTSLIDER.GALLERY_MARGIN_HELP
+              type: text
+              size: small
+              toggleable: true
+              default: 15
+
+            header.lightslider.gallery_thumb_margin:
+              label: PLUGIN_LIGHTSLIDER.GALLERY_THUMB_MARGIN
+              help: PLUGIN_LIGHTSLIDER.GALLERY_THUMB_MARGIN_HELP
+              type: text
+              size: small
+              toggleable: true
+              default: 5
+
+            header.lightslider.enableTouch:
+              label: PLUGIN_LIGHTSLIDER.ENABLETOUCH
+              help: PLUGIN_LIGHTSLIDER.ENABLETOUCH_HELP
+              type: toggle
+              size: small
+              toggleable: true
+              default: 1
+              highlight: 1
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+            header.lightslider.enableDrag:
+              label: PLUGIN_LIGHTSLIDER.ENABLEDRAG
+              help: PLUGIN_LIGHTSLIDER.ENABLEDRAG_HELP
+              type: toggle
+              size: small
+              toggleable: true
+              default: 1
+              highlight: 1
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+            header.lightslider.pauseOnHover:
+              label: PLUGIN_LIGHTSLIDER.PAUSEONHOVER
+              help: PLUGIN_LIGHTSLIDER.PAUSEONHOVER_HELP
+              type: toggle
+              size: small
+              toggleable: true
+              default: 0
+              highlight: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool

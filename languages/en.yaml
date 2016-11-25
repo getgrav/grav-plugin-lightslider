@@ -1,0 +1,54 @@
+PLUGIN_LIGHTSLIDER:
+  ENABLED: Enabled
+  ENABLED_HELP: enabled_help
+  BUILT_IN_CSS: Build-in CSS
+  BUILT_IN_CSS_HELP: built_in_css_help
+  SLIDER_TYPE: Slider Type
+  SLIDER_TYPE_HELP: slider_type_help
+  TYPE_TEXT_HEIGHT: Type Text Height
+  TYPE_TEXT_HEIGHT_HELP: type_text_height_help
+  TYPE_TEXT_VERTICAL_PADDING: Type Text Vertical Padding
+  TYPE_TEXT_VERTICAL_PADDING_HELP: type_text_vertical_padding_help
+  TYPE_TEXT_HORIZONTAL_PADDING: Type Text Horizontal Padding
+  TYPE_TEXT_HORIZONTAL_PADDING_HELP: type_text_horizontal_padding_help
+  TYPE_TEXT_BRIGHTNESS: Type Text Brightness
+  TYPE_TEXT_BRIGHTNESS_HELP: type_text_brightness_help
+  ITEM: Items Count
+  ITEM_HELP: item_help
+  SLIDEMOVE: Slide Move
+  SLIDEMOVE_HELP: slidemove_help
+  SLIDEMARGIN: Slide Margin
+  SLIDEMARGIN_HELP: slidemargin_help
+  LOOP: Loop
+  LOOP_HELP: loop_help
+  MODE: Sliding Mode
+  MODE_HELP: mode_help
+  CONTROLS: Controls
+  CONTROLS_HELP: controls_help
+  KEYPRESS: Key Press
+  KEYPRESS_HELP: keypress_help
+  AUTO: Auto
+  AUTO_HELP: auto_help
+  PAUSE: Pause
+  PAUSE_HELP: pause_help
+  SPEED: Speed
+  SPEED_HELP: speed_help
+  PAGER: Pager
+  PAGER_HELP: pager_help
+  GALLERY: Gallery
+  GALLERY_HELP: gallery_help
+  GALLERY_THUMB_WIDTH: Gallery Thumb Width
+  GALLERY_THUMB_WIDTH_HELP: gallery_thumb_width_help
+  GALLERY_THUMB_HEIGHT: Gallery Thumb Height
+  GALLERY_THUMB_HEIGHT_HELP: gallery_thumb_height_help
+  GALLERY_MARGIN: Gallery Margin
+  GALLERY_MARGIN_HELP: gallery_margin_help
+  GALLERY_THUMB_MARGIN: Gallery Thumb Margin
+  GALLERY_THUMB_MARGIN_HELP: gallery_thumb_margin_help
+  ENABLETOUCH: Enable Touch
+  ENABLETOUCH_HELP: enabletouch_help
+  ENABLEDRAG: Enable Drag
+  ENABLEDRAG_HELP: enabledrag_help
+  PAUSEONHOVER: Pause On Hover
+  PAUSEONHOVER_HELP: pauseonhover_help
+  NO_LINK: No Link
