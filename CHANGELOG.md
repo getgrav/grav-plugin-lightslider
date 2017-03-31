@@ -1,5 +1,5 @@
 # v1.5.2
-## xx/03/2017
+## 03/31/2017
 
 1. [](#bugfix)
     * Fix [#22](https://github.com/getgrav/grav-plugin-lightslider/issues/22) add basic lightslider page blueprint
