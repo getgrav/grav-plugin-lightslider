@@ -1,9 +1,10 @@
 <?php
 namespace Grav\Plugin;
 
-use \Grav\Common\Plugin;
-use \Grav\Common\Grav;
-use \Grav\Common\Page\Page;
+use Grav\Common\Plugin;
+use Grav\Common\Grav;
+use Grav\Common\Page\Page;
+use RocketTheme\Toolbox\Event\Event;
 
 class LightsliderPlugin extends Plugin
 {
@@ -13,8 +14,21 @@ class LightsliderPlugin extends Plugin
     public static function getSubscribedEvents()
     {
         return [
-            'onPluginsInitialized' => ['onPluginsInitialized', 0]
+            'onPluginsInitialized' => ['onPluginsInitialized', 0],
+            'onGetPageBlueprints'  => ['onGetPageBlueprints', 0],
         ];
+    }
+
+    /**
+     * Add page blueprints
+     *
+     * @param Event $event
+     */
+    public function onGetPageBlueprints(Event $event)
+    {
+        /** @var Types $types */
+        $types = $event->types;
+        $types->scanBlueprints('plugins://lightslider/blueprints/pages/');
     }
 
     /**
