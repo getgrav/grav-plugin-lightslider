@@ -1,3 +1,9 @@
+# v1.5.3
+## 04/11/2017
+
+1. [](#bugfix)
+    * Missed to update blueprint in the last release
+
 # v1.5.2
 ## 03/31/2017
 
