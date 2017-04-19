@@ -1,3 +1,9 @@
+# v1.5.4
+## 04/xx/2017
+
+1. [](#new)
+    * Added the option to center the active slide [#24](https://github.com/getgrav/grav-plugin-lightslider/pulls/24)
+
 # v1.5.3
 ## 04/11/2017
 
