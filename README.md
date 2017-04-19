@@ -79,6 +79,7 @@ type_text_brightness: 0
 item: 1
 slideMove: 1
 slideMargin: 0
+centerSlide: 'false'
 loop: 'false'
 mode: 'fade'
 controls: 'true'
@@ -146,6 +147,7 @@ Here is a breakdown of lightSlider's options you can use in this plugin:
 | item           | The number of slides to show at a time                                                                                     |
 | slideMove      | This option sets the number of slides moved at a time. The default setting is `1`.                                         |
 | slideMargin    | This option sets the spacing between each slide.                                                                           |
+| centerSlide    | This option centers the active slide within the slider, rather than positioning it on the left side of the slider.                              |
 | mode           | Sets the transition mode. Your options are `slide` and `fade`.                                                             |
 | cssEasing      | Type of easing to be used for css animations. defaults to `ease`                                                           |
 | easing         | Type of easing to be used for jquery animations. defaults to `linear`                                                      |
