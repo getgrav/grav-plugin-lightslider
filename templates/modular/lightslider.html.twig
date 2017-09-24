@@ -13,7 +13,11 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    $("#{{ unique_id }}").lightSlider({
+    window.Grav = $.extend({}, window.Grav);
+    window.Grav.plugins = $.extend({}, window.Grav.plugins);
+    window.Grav.plugins.lightSlider = {};
+
+    window.Grav.plugins.lightSlider['{{ unique_id }}'] = $("#{{ unique_id }}").lightSlider({
         item: {{ settings.item|default(1) }},
         slideMove: {{ settings.slideMove|default(3) }},
         slideMargin: {{ settings.slideMargin|default(5) }},
