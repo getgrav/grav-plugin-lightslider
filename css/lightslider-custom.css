@@ -3,5 +3,17 @@
 .grav-lightslider .panel-bg {background-size: cover; background-position: center;}
 .grav-lightslider h1, .grav-lightslider h2, .grav-lightslider h3, .grav-lightslider h4 { color: #fff;}
 .lSSlideOuter .lSPager.lSpg > li a { height: 12px !important; width: 12px !important; border-radius: 100% !important;}
-
+.grav-lightslider .panel {
+	background-color: rgba(0, 0, 0, 0.6);
+	padding: 10px;
+	width: 100%;
+	color: white;
+	text-shadow: 0 1px 2px rgba(0,0,0,.6);
+	font-weight: bold;
+	font-size: 130%;
+	text-align: center;
+	display: inline-block;
+	align-self: flex-end;
+}
+.grav-lightslider .panel p { margin: 0; }
 

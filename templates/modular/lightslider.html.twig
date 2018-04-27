@@ -47,7 +47,7 @@
 
 
 <div id="{{ unique_id }}-wrapper" class="grav-lightslider">
-    {% if settings.slider_type == 'text' %}
+    {% if settings.slider_type != 'image' %}
     <ul id="{{ unique_id }}" style="{% if settings.type_text_height %}height: {{ settings.type_text_height }};{% endif %}">
         {% for panel in page.content|split('<hr />') %}
             {% set panel_media = page.media['image-'~loop.index~'.jpg'] %}
@@ -57,14 +57,20 @@
             {% endif %}
             <li {{ panel_data_thumb|raw }}>
                 <div class="panel-bg" style="
+                    display: flex;
+                    height: 100%;
                     {% if panel_image %}background-image: url({{ panel_image }});{% endif %}
                     min-height: {{ settings.type_text_min_height|default('auto') }};
-                    height: {{ settings.type_text_height|default('auto') }};
+                    height: {{ panel_media.height }}px;
                     ">
-                    <div class="panel-padding {{ settings.type_text_css_class }}" style="
-                        padding: {{ settings.type_text_vertical_padding|default(0) }} {{ settings.type_text_horizontal_padding|default(0) }}
-                        ">
-                        {{ panel|raw }}
+                    {% if settings.slider_type == 'text' %}
+                        <div class="panel-padding {{ settings.type_text_css_class }}" style=" 
+                        padding: {{ settings.type_text_vertical_padding|default(0) }} {{ settings.type_text_horizontal_padding|default(0) }} 
+                        "> 
+                    {% else %}
+                        <div class="panel">
+                    {% endif %}
+                        {{ panel|raw }}                    
                     </div>
                 </div>
             </li>
