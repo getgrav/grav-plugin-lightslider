@@ -1,5 +1,5 @@
 name: LightSlider
-version: 1.5.3
+version: 1.5.4
 description: "This plugin wraps the [Lightslider](http://sachinchoolur.github.io/lightslider/) jQuery plugin and let's you add nice content sliders."
 icon: bolt
 author:
@@ -11,6 +11,9 @@ demo: http://demo.getgrav.org/shop-skeleton
 keywords: lightslider, plugin, slider, images, carousel
 bugs: https://lightslider.com/getgrav/grav-plugin-lightslider/issues
 license: MIT
+
+compatibility:
+  grav: ['1.7', '2.0']
 
 form:
   validation: strict

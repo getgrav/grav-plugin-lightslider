@@ -20,6 +20,7 @@
 ## 08/09/2016
 
 1. [](#improved)
+    * Added 1.7|2.0 compatibility flags
     * Added support for Grav's autoescape twig setting
     * Added support for `unqiue_id` config option
 1. [](#bugfix)
