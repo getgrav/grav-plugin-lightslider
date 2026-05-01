@@ -8,6 +8,7 @@
         autoWidth: false,
         slideMove: 1,
         slideMargin: 10,
+        centerSlide: false,
         addClass: '',
         mode: 'slide',
         useCSS: true,
@@ -608,6 +609,12 @@
                     _sV = 0;
                     for (var i = 0; i < scene; i++) {
                         _sV += (parseInt($children.eq(i).width()) + settings.slideMargin);
+                    }
+                }
+                if (settings.centerSlide) {
+                    var extraWidth = elSize - $children.eq(scene).width();
+                    if (extraWidth > 1) {
+                        _sV -= Math.round(extraWidth / 2);
                     }
                 }
                 return _sV;

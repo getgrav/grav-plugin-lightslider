@@ -1,3 +1,9 @@
+# v1.5.4
+## 04/xx/2017
+
+1. [](#new)
+    * Added the option to center the active slide [#24](https://github.com/getgrav/grav-plugin-lightslider/pulls/24)
+
 # v1.5.3
 ## 04/11/2017
 
@@ -14,6 +20,7 @@
 ## 08/09/2016
 
 1. [](#improved)
+    * Added 1.7|2.0 compatibility flags
     * Added support for Grav's autoescape twig setting
     * Added support for `unqiue_id` config option
 1. [](#bugfix)
