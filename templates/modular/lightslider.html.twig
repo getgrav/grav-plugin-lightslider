@@ -77,7 +77,7 @@
                 {% set image_data_thumb = 'data-thumb=\"'~image.cropResize(settings.gallery_thumb_width|default(100),settings.gallery_thumb_height|default(100)).url~'\"' %}
             {% endif %}
             <li {{ image_data_thumb }}>
-                <img src="{{ image.url }}" />
+                <img src="{{ image.url }}" alt="" />
             </li>
         {% endfor %}
     </ul>
