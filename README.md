@@ -52,13 +52,20 @@ To best understand how lightSlider works, you should read through the original p
 
 This plugin is provided as a [modular page](http://learn.getgrav.org/content/content-pages#modular-page) within Grav. That modular page created should be called `lightslider.md` so that it will automatically use the lightslider twig template already provided in the plugin.
 
-The plugin has **two** primary modes. Those are **text** and **image** mode.
+The plugin has **three** primary modes. Those are **text**, **caption** and **image** mode.
 
 ## Text Mode
 
 In this mode you can create content for each slider. Each section of slide content is defined as a single Grav page, but you divide the slides up using the markdown `---` syntax to signify a _thematic break_.
 
 When in text mode, the lightslider template automatically looks for images of the format: `image-1.jpg`, `image-2.jpg`, `image-3.jpg`, etc. It will associate each section of the page content to each image in order.
+
+The whole image darkens and the text will be in front of it.
+
+## Caption Mode
+
+Works like text mode, but looks like this:
+![](assets/caption_mode.png)
 
 ## Image Mode
 
@@ -134,7 +141,7 @@ Here is a breakdown of lightSlider's options you can use in this plugin:
 
 |            Option            |                                         Description                                          |
 | :--------------------------- | -------------------------------------------------------------------------------------------- |
-| slider_type                  | Either `text` or `image`. See above for more information                                     |
+| slider_type                  | Either `text`, `caption` or `image`. See above for more information                                     |
 | type_text_height             | CSS attribute for height. Defaults to `auto` but could be `300px`                            |
 | type_text_vertical_padding   | CSS attribute for vertical padding. Defaults to `80px`                                       |
 | type_text_horizontal_padding | CSS attribute for horizontal padding. Defaults to `50px`                                     |
