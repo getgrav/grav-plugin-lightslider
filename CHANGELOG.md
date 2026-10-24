@@ -1,3 +1,9 @@
+# v1.5.5
+## 10/24/2026
+
+1. [](#bugfix)
+    * Fixed slides with images not starting on jQuery 3, which current Grav versions load
+
 # v1.5.4
 ## 04/xx/2017
 
